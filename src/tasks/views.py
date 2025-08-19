@@ -45,3 +45,9 @@ class TaskDeleteView(LoginRequiredMixin, DeleteView):
         return Task.objects.filter(user=self.request.user)
     
 
+class TaskCompleteView(LoginRequiredMixin, View):
+    def post(self, request, pk):
+        task = get_object_or_404(Task, pk=pk, user=request.user)
+        task.completed = not task.completed
+        task.save()
+        return HttpResponseRedirect(reverse_lazy('task-list'))
