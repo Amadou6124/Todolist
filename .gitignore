@@ -1,0 +1,49 @@
+# Environnements virtuels
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Dépendances
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Fichiers de logs et temporaires
+*.log
+*.pot
+*.pyc
+*.swp
+.DS_Store
+Thumbs.db
+
+# Configuration locale
+*.sqlite3
+*.db
+*.sqlite
+
+# Outils et IDE
+.vscode/
+.idea/
+*.iml
+
+# Tests
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Autres caches
+.mypy_cache/
+.pytype/
+.pyre/
