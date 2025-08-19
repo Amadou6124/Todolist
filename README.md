@@ -10,3 +10,19 @@ Modifier une tâche
 Supprimer une tâche
 Interface responsive grâce à Bootstrap.
 Base de données PostgreSQL pour un stockage fiable et évolutif.
+
+
+
+Clonage du depot 
+git clone https://github.com/Amadou6124/Todolist/
+cd src
+
+python -m venv .env
+
+sous windows
+.env\Scripts\activate
+
+sous macOS ou linux
+source .env/bin/activate
+
+
