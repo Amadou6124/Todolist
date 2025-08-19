@@ -26,3 +26,17 @@ sous macOS ou linux
 source .env/bin/activate
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'todolist_db',
+        "USER": 'sy',
+        'PASSWORD': 'Alhamdoulilah100%',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+python manage.py migrate
+python manage.py runserver
+
