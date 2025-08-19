@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Nouvelle tâche{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="mb-4 text-center">Ajouter une nouvelle tâche</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary w-100">Créer la tâche</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
