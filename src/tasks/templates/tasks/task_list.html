@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Mes tâches{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2 class="mb-4 text-center">📝 Mes Tâches</h2>
+
+        <div class="d-flex justify-content-end mb-3">
+            <a href="{% url 'task_create' %}" class="btn btn-primary">➕ Ajouter une tâche</a>
+        </div>
+
+        {% if tasks %}
+            {% for task in tasks %}
+                <div class="card mb-3 shadow-sm {% if task.completed %}border-success{% endif %}">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h5 class="card-title {% if task.completed %}text-success text-decoration-line-through{% endif %}">
+                                    {{ task.title }}
+                                </h5>
+                                {% if task.description %}
+                                    <p class="card-text">{{ task.description }}</p>
+                                {% endif %}
+                                <small class="text-muted">Créée le {{ task.created_at|date:"d M Y H:i" }}</small>
+                            </div>
+                            <div class="ms-3">
+                                <div class="card p-2 border-0 bg-light d-flex flex-column align-items-start gap-2">
+                                    <form method="post" action="{% url 'task-complete' task.pk %}" style="display:inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-sm {% if task.completed %}btn-success{% else %}btn-outline-success{% endif %} w-100 text-start">
+                                            ✔ Terminer
+                                        </button>
+                                    </form>
+
+                                    <a href="{% url 'task-update' task.pk %}" class="btn btn-sm btn-outline-primary w-100 text-start">
+                                        ✏ Modifier
+                                    </a>
+
+                                    <a href="{% url 'task-delete' task.pk %}" class="btn btn-sm btn-outline-danger w-100 text-start">
+                                        🗑 Supprimer
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-info text-center">Aucune tâche pour l’instant.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
