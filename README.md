@@ -26,6 +26,8 @@ sous macOS ou linux
 source .env/bin/activate
 
 
+pip install -r requirements.txt
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
